@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2026 at 09:54 PM
+-- Generation Time: Apr 24, 2026 at 02:40 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,35 +41,10 @@ CREATE TABLE `clientes` (
 
 CREATE TABLE `direcciones` (
   `idDirección` int(20) NOT NULL,
-  `idCliente` int(20) NOT NULL,
+  `IdCliente` int(20) NOT NULL,
   `calle` varchar(20) NOT NULL,
   `altura` int(4) NOT NULL,
   `depto` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mascotas`
---
-
-CREATE TABLE `mascotas` (
-  `idMascota` int(11) NOT NULL,
-  `nombre` varchar(20) NOT NULL DEFAULT '0',
-  `raza` varchar(20) NOT NULL DEFAULT '0',
-  `edad` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `paseos`
---
-
-CREATE TABLE `paseos` (
-  `idPaseo` int(11) NOT NULL,
-  `fechaHoraInicio` datetime DEFAULT NULL,
-  `fechaHoraFin` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -87,21 +62,9 @@ ALTER TABLE `clientes`
 --
 ALTER TABLE `direcciones`
   ADD PRIMARY KEY (`idDirección`),
-  ADD KEY `IdCliente` (`idCliente`),
-  ADD KEY `IdCliente_2` (`idCliente`),
-  ADD KEY `IdCliente_3` (`idCliente`);
-
---
--- Indexes for table `mascotas`
---
-ALTER TABLE `mascotas`
-  ADD PRIMARY KEY (`idMascota`) USING BTREE;
-
---
--- Indexes for table `paseos`
---
-ALTER TABLE `paseos`
-  ADD PRIMARY KEY (`idPaseo`);
+  ADD KEY `IdCliente` (`IdCliente`),
+  ADD KEY `IdCliente_2` (`IdCliente`),
+  ADD KEY `IdCliente_3` (`IdCliente`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -118,18 +81,6 @@ ALTER TABLE `clientes`
 --
 ALTER TABLE `direcciones`
   MODIFY `idDirección` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `mascotas`
---
-ALTER TABLE `mascotas`
-  MODIFY `idMascota` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `paseos`
---
-ALTER TABLE `paseos`
-  MODIFY `idPaseo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
