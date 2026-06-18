@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2026 at 09:54 PM
+-- Generation Time: Jun 19, 2026 at 12:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -57,7 +57,21 @@ CREATE TABLE `mascotas` (
   `idMascota` int(11) NOT NULL,
   `nombre` varchar(20) NOT NULL DEFAULT '0',
   `raza` varchar(20) NOT NULL DEFAULT '0',
-  `edad` int(3) NOT NULL
+  `edad` int(3) NOT NULL,
+  `idCliente` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `paseadores`
+--
+
+CREATE TABLE `paseadores` (
+  `idPaseador` int(5) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `telefono` varchar(20) NOT NULL,
+  `tarifa` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -69,7 +83,8 @@ CREATE TABLE `mascotas` (
 CREATE TABLE `paseos` (
   `idPaseo` int(11) NOT NULL,
   `fechaHoraInicio` datetime DEFAULT NULL,
-  `fechaHoraFin` datetime DEFAULT NULL
+  `fechaHoraFin` datetime DEFAULT NULL,
+  `estado` enum('Pendiente','Aceptado','En curso','Finalizado','Cancelado') NOT NULL DEFAULT 'Pendiente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -95,7 +110,8 @@ ALTER TABLE `direcciones`
 -- Indexes for table `mascotas`
 --
 ALTER TABLE `mascotas`
-  ADD PRIMARY KEY (`idMascota`) USING BTREE;
+  ADD PRIMARY KEY (`idMascota`) USING BTREE,
+  ADD KEY `idCliente` (`idCliente`);
 
 --
 -- Indexes for table `paseos`
@@ -139,7 +155,13 @@ ALTER TABLE `paseos`
 -- Constraints for table `direcciones`
 --
 ALTER TABLE `direcciones`
-  ADD CONSTRAINT `cliente_direccion` FOREIGN KEY (`IdCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cliente_direccion` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `mascotas`
+--
+ALTER TABLE `mascotas`
+  ADD CONSTRAINT `idCliente` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

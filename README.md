@@ -1,4 +1,9 @@
 ## Setup
 
 1. Crear base de datos en local
-2. Importar archivo `database/sistema_paseador_perros.sql`
+
+```sql
+CREATE DATABASE sistema_paseador_mascotas;
+```
+
+2. Importar archivo `database\sistema_paseador_mascotas.sql`
