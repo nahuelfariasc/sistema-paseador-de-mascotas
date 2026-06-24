@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2026 at 01:43 AM
+-- Generation Time: Jun 24, 2026 at 08:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,6 +33,15 @@ CREATE TABLE `clientes` (
   `telefono` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `clientes`
+--
+
+INSERT INTO `clientes` (`idCliente`, `nombre`, `telefono`) VALUES
+(1, 'Juan Pérez', '1123456789'),
+(2, 'María Lopez', '1198765432'),
+(3, 'Carlos Rodriguez', '1155443322');
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +55,15 @@ CREATE TABLE `direcciones` (
   `altura` int(4) NOT NULL,
   `depto` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `direcciones`
+--
+
+INSERT INTO `direcciones` (`idDirección`, `idCliente`, `calle`, `altura`, `depto`) VALUES
+(1, 1, 'Av. Corrientes', 1234, '2B'),
+(2, 2, 'Av. Santa Fe', 450, 'Casa'),
+(3, 3, 'Mitre', 3210, '4A');
 
 -- --------------------------------------------------------
 
@@ -61,6 +79,16 @@ CREATE TABLE `mascotas` (
   `idCliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `mascotas`
+--
+
+INSERT INTO `mascotas` (`idMascota`, `nombre`, `raza`, `edad`, `idCliente`) VALUES
+(1, 'Firulais', 'Ovejero', 3, 1),
+(2, 'Luna', 'Caniche', 2, 1),
+(3, 'Rocco', 'Pug', 5, 2),
+(4, 'Toby', 'Labrador', 4, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -73,6 +101,14 @@ CREATE TABLE `paseadores` (
   `telefono` varchar(20) NOT NULL,
   `tarifa` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `paseadores`
+--
+
+INSERT INTO `paseadores` (`idPaseador`, `nombre`, `telefono`, `tarifa`) VALUES
+(1, 'Diego Gómez', '1133445566', 1500),
+(2, 'Ana Martínez', '1177889900', 1800);
 
 -- --------------------------------------------------------
 
@@ -88,6 +124,16 @@ CREATE TABLE `paseos` (
   `idMascota` int(11) NOT NULL,
   `idPaseador` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `paseos`
+--
+
+INSERT INTO `paseos` (`idPaseo`, `fechaHoraInicio`, `fechaHoraFin`, `estado`, `idMascota`, `idPaseador`) VALUES
+(1, '2026-06-24 09:00:00', '2026-06-24 10:00:00', 'Finalizado', 1, 1),
+(2, '2026-06-24 10:30:00', '2026-06-24 11:30:00', 'En curso', 3, 1),
+(3, '2026-06-25 16:00:00', '2026-06-25 17:00:00', 'Pendiente', 2, 2),
+(4, '2026-06-24 08:00:00', '2026-06-24 09:00:00', 'Finalizado', 4, 2);
 
 --
 -- Indexes for dumped tables
@@ -135,31 +181,31 @@ ALTER TABLE `paseos`
 -- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `direcciones`
 --
 ALTER TABLE `direcciones`
-  MODIFY `idDirección` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idDirección` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `mascotas`
 --
 ALTER TABLE `mascotas`
-  MODIFY `idMascota` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `paseadores`
 --
 ALTER TABLE `paseadores`
-  MODIFY `idPaseador` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPaseador` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `paseos`
 --
 ALTER TABLE `paseos`
-  MODIFY `idPaseo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPaseo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
