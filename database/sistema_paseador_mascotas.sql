@@ -73,8 +73,8 @@ INSERT INTO `direcciones` (`idDirección`, `idCliente`, `calle`, `altura`, `dept
 
 CREATE TABLE `mascotas` (
   `idMascota` int(11) NOT NULL,
-  `nombre` varchar(20) NOT NULL DEFAULT '0',
-  `raza` varchar(20) NOT NULL DEFAULT '0',
+  `nombre` varchar(20) NOT NULL DEFAULT '',
+  `raza` varchar(20) NOT NULL DEFAULT '',
   `edad` int(2) NOT NULL,
   `idCliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
