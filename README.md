@@ -168,14 +168,4 @@ Importar el archivo `database\sistema_paseador_mascotas.sql` en tu gestor de bas
 
 ---
 
-## 📝 6. Conclusiones
-
-Este sistema resuelve problemáticas operativas críticas:
-
-- **Trazabilidad de Servicios:** Monitoreo del estado real de cada paseo ('Pendiente', 'En curso', 'Finalizado', 'Cancelado').
-- **Consistencia Logística:** Vinculación directa y ordenada de los clientes con sus múltiples direcciones de retiro y sus respectivas mascotas.
-- **Control Financiero:** Automatización del cálculo de recaudación de cada paseador de acuerdo con sus tarifas específicas y los paseos completados.
-
----
-
 _Desarrollado por Basados._
