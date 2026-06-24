@@ -104,9 +104,7 @@ ALTER TABLE `clientes`
 --
 ALTER TABLE `direcciones`
   ADD PRIMARY KEY (`idDirección`),
-  ADD KEY `IdCliente` (`idCliente`),
-  ADD KEY `IdCliente_2` (`idCliente`),
-  ADD KEY `IdCliente_3` (`idCliente`);
+  ADD KEY `IdCliente` (`idCliente`);
 
 --
 -- Indexes for table `mascotas`
@@ -143,7 +141,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT for table `direcciones`
 --
 ALTER TABLE `direcciones`
-  MODIFY `idDirección` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idDirección` int(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `mascotas`
